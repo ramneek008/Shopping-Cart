@@ -30,6 +30,10 @@ function App() {
     });
   };
 
+  const removeFromCart = item => {
+    setCartItems(cartItems.filter(singleItem => singleItem.id !== item.id))
+  };
+
   return (
     <div className="App">
       <header className="App-header">
