@@ -20,8 +20,15 @@ function App() {
     }
 
     setCartItems([...cartItems, item]);
+  };
 
-  }
+  const buyNow = () => {
+    setCartItems([]);
+
+    toast("Purchase complete", {
+      type: success
+    });
+  };
 
   return (
     <div className="App">
