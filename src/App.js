@@ -4,13 +4,14 @@ import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
 import { toast } from 'react-toastify';
 import BuyPage from './Components/BuyPage';
+import Cart from './Components/Cart';
 
 function App() {
 
-  const [cartItems, setCartItems] = useState([]);
+  const [cartItem, setCartItem] = useState([]);
 
   const addInCart = item => {
-    const isAlreadyAdded = cartItems.findIndex(function(array){
+    const isAlreadyAdded = cartItem.findIndex(function(array){
       return array.id === item.id
     })
 
@@ -20,11 +21,11 @@ function App() {
       })
     }
 
-    setCartItems([...cartItems, item]);
+    setCartItem([...cartItem, item]);
   };
 
   const buyNow = () => {
-    setCartItems([]);
+    setCartItem([]);
 
     toast("Purchase complete", {
       type: "success"
@@ -32,12 +33,13 @@ function App() {
   };
 
   const removeFromCart = item => {
-    setCartItems(cartItems.filter(singleItem => singleItem.id !== item.id))
+    setCartItem(cartItem.filter(singleItem => singleItem.id !== item.id))
   };
 
   return (
     <div className="App">
       <BuyPage addInCart={addInCart} />
+      <Cart cartItem={cartItem} removeFromCart={removeFromCart} buyNow={buyNow} />
     </div>
   );
 }
