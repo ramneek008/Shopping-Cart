@@ -20,7 +20,8 @@ function App() {
     if(isAlreadyAdded !== -1){
       toast("Already in Cart",{
         type:"error"
-      })
+      });
+      return;
     }
 
     setCartItem([...cartItem, item]);
