@@ -32,7 +32,7 @@ const Cart = ({cartItem, removeFromCart, buyNow}) => {
 
             {
                 cartItem.length >= 1 ? (
-                    <Card className="text-center-mt-3">
+                    <Card className="text-center mt-3">
                         <CardHeader>Grand Total</CardHeader>
                         <CardBody>
                             Your amount for {cartItem.length} products is Rs.{amount}
